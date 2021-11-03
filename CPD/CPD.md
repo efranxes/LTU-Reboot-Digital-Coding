@@ -15,3 +15,15 @@ How did I use this in practice?
 What did I find hard?
 
 I didn't quiet understand how the internet worked ....
+
+
+03/11/2021
+Setting Up & Tools
+
+What have I learnt?
+How to use GitHub.
+
+How did I use this in practice?
+Cloned projects to my computer, 
+
+What did I find hard?

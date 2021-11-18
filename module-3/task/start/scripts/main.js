@@ -79,3 +79,86 @@ function productDiscount(){
 }
 
 productDiscount();
+
+
+
+//TASK 8
+
+function drinkOrder(size,drink){
+    
+    if(size != 'small' && size != 'medium' && size != 'large'){
+        console.log('You have ordered a size we don\'t sell!');
+        return;
+    }
+    let message = 'You have ordered a ' + size;
+
+    switch(drink){
+        case 'orange':
+            message += ' orange';
+            break;
+        case 'lemonade':
+            message += ' lemonade';
+            break;
+        case 'cola':
+            message += ' cola';
+            break;
+        default:
+            message = 'You have ordered a drink we don\'t sell!';
+    }
+    console.log(message);
+}
+
+drinkOrder('small','lemonade');
+drinkOrder('medium','cola');
+drinkOrder('large','coffee');
+drinkOrder('tiny','orange');
+
+
+//TASK 9
+
+//FUNCTION calculator {num1} {num2} {operator}
+    //VALIDATE all data
+    //SWITCH {operator}
+        //based on the operator do maths
+    //RETURN sum
+
+function calculator(num1,num2,operator){
+    if(isNaNValidator(num1)){
+        console.log('Number 1 is not a number');
+        return;
+    }
+    if(isNaNValidator(num2)){
+        console.log('Number 2 is not a number')
+        return;
+    }
+    let sum;
+    switch(operator){
+        case '+':
+            sum = num1 + num2;
+            break;
+        case '-':
+            sum = num1 - num2;
+            break;
+        case '*':
+            sum = num1 * num2;
+            break;
+        case '/':
+            sum = num1 / num2;
+            break;
+        case '%':
+            sum = num1 % num2;
+            break;
+        default:
+            console.log('Operator is not recognized.')
+            return;
+    }
+    return sum;
+}
+
+function isNaNValidator(number){
+    return isNaN(number);
+}
+
+console.log(calculator(5,10,'+'));
+console.log(calculator(222,9,'/'));
+console.log(calculator(49,8,'%'));

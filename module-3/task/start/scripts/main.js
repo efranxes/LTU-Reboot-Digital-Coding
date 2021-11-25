@@ -253,3 +253,86 @@ outputTimesTable(5);
 for(multiplier = 1; multiplier <=12; multiplier ++){
     outputTimesTable(multiplier);
 }
+
+
+//TASK 17 & 18
+
+function totalPriceOfShopping(shoppingCart, objCoupon=null){
+    let totalPrice = 0;
+    for(arrayKey = 0; arrayKey < shoppingCart.length; arrayKey ++){
+        let currentItem = shoppingCart[arrayKey];
+        //Price of item x quantity
+        let currentItemPrice = currentItem.quantity * currentItem.price;
+
+        //Apply discounts to individual items
+        let discount = 0;
+        if(objCoupon && objCoupon.type != "basketTotal" && objCoupon.type != "basketPercent"){ //if the coupon applies to individual items
+            if(objCoupon.types.includes(currentItem.type)){ //if the coupon applies to current item
+                switch(objCoupon.type){
+                    case "flatFee":
+                        discount = objCoupon.amount * currentItem.quantity;
+                        currentItemPrice = currentItemPrice - discount;
+                        break;
+                    case "percentage":
+                        discount = (currentItemPrice / 100) * objCoupon.amount;
+                        currentItemPrice = currentItemPrice - discount;
+                        break;
+                }
+            }
+        }
+        totalPrice += currentItemPrice;
+    }
+    //Apply discounts to basket
+    if(objCoupon && (objCoupon.type == "basketTotal" || objCoupon.type == "basketPercent")){
+        switch(objCoupon.type){
+            case "basketTotal":
+                totalPrice = totalPrice - objCoupon.amount;
+                break;
+            case "basketPercentage":
+                discount = (totalPrice / 100) * objCoupon.amount;
+                totalPrice = totalPrice - discount;
+                break;
+        }
+    }
+    return totalPrice.toFixed(2);
+}
+
+//Create coupons
+let objCoupon1 = {
+    types: ["toiletries", "condiment"],
+    type: "flatFee",
+    amount: 0.5,
+};
+
+let objCoupon2 = {
+    types: ["canned", "snacks"],
+    type: "percentage",
+    amount: 30,
+}
+
+let objCoupon3 = {
+    types: [""],
+    type: "basketTotal",
+    amount: 25,
+}
+
+let objCoupon4 = {
+    types: [""],
+    type: "basketPercent",
+    amount: 40,
+}
+
+let shoppingCartPrice = totalPriceOfShopping(shoppingCart);
+console.log(shoppingCartPrice);
+
+shoppingCartPrice = totalPriceOfShopping(shoppingCart, objCoupon1);
+console.log(shoppingCartPrice);
+
+shoppingCartPrice = totalPriceOfShopping(shoppingCart, objCoupon2);
+console.log(shoppingCartPrice);
+
+shoppingCartPrice = totalPriceOfShopping(shoppingCart, objCoupon3);
+console.log(shoppingCartPrice);
+
+shoppingCartPrice = totalPriceOfShopping(shoppingCart, objCoupon4);
+console.log(shoppingCartPrice);

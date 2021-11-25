@@ -162,3 +162,94 @@ function isNaNValidator(number){
 console.log(calculator(5,10,'+'));
 console.log(calculator(222,9,'/'));
 console.log(calculator(49,8,'%'));
+
+
+//TASK 10
+
+let arrProductInfo = [
+    productName,
+    price,
+    quantity,
+    inStock,
+    discountAmount,
+];
+
+console.log(arrProductInfo);
+
+
+//TASK 11
+
+console.log(arrProductInfo[0]);
+console.log(arrProductInfo[4]);
+
+
+//TASK 12
+
+let objProductInfo = {
+    "productName" : productName,
+    "price" : price,
+    "quantity" : quantity,
+    "inStock" : inStock,
+    "discountAmount" : discountAmount,
+};
+
+console.log(objProductInfo);
+
+
+//TASK 13
+
+console.log(objProductInfo.productName);
+
+objProductInfo["productName"] = "ferret";
+
+console.log(objProductInfo.productName);
+
+
+//TASK 14
+
+objProductInfo["price"] = "68.99";
+
+console.log(objProductInfo.price);
+
+
+//TASK 15
+
+objProductInfo.productLocation = "shelf 5";
+objProductInfo["mailingAddress"] = "Hawaii";
+
+console.log(objProductInfo);
+
+
+//FIZZBUZZ
+
+for(let counter = 1; counter <= 20; counter ++){
+    if(counter % 3 == 0 && counter % 5 == 0){
+        console.log("FIZZBUZZ");
+    }
+    else if(counter % 3 == 0){
+        console.log("FIZZ");
+    }
+    else if(counter % 5 == 0){
+        console.log("BUZZ");
+    }
+    else {
+        console.log(counter);
+    }
+}
+
+
+//TASK 16
+
+function outputTimesTable(number){
+    for(counter = 0; counter <= 12; counter ++){
+        let sum = counter * number;
+        let strMessage = counter + " x " + number +  " = " + sum;
+        console.log(strMessage);
+    }
+}
+
+outputTimesTable(5);
+
+for(multiplier = 1; multiplier <=12; multiplier ++){
+    outputTimesTable(multiplier);
+}

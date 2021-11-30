@@ -1,0 +1,77 @@
+html{
+    background: rgb(210,255,224);
+    background: linear-gradient(360deg, rgba(210,255,224,1) 0%, rgba(255,221,227,1) 100%);
+}
+
+header .logo{
+    max-width: 200px;
+    display:block;
+    margin:0 auto;
+    border-radius: 15px;
+}
+
+section.userInterface{
+    padding:30px;
+}
+
+.buttonContainer{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding:20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+button{
+    background-color: pink;
+    
+}
+
+.inputContainer{
+    display:flex;
+    justify-content: center;
+    padding:20px;
+}
+
+main{
+    width:calc(75% - 40px);
+    float:left;
+    padding:20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+aside{
+    width:calc(25% - 40px);
+    float:right;
+    padding:20px;
+}
+
+@media only screen and (max-width: 900px) {
+    main,
+    aside {
+      float:none;
+      width:calc(100% - 40px);
+    }
+}
+
+.imageContainer{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.imageContainer div{
+    max-width:calc(25% - 20px);
+    padding:10px;
+}
+
+.imageContainer div img{
+    max-width:100%;
+    border-radius: 5px;
+}
+
+.hide{
+    display:none;
+}
